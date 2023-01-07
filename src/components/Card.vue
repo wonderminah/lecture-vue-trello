@@ -1,7 +1,12 @@
 <template>
     <div>
         Card
-        <div>cid: {{ cid }}</div>
+        <div v-if="loading">
+            Loading Card...
+        </div>
+        <div v-else>
+            <div>cid: {{ cid }}</div>
+        </div>
     </div>
 </template>
 
@@ -9,16 +14,27 @@
 export default {
     data() {
         return {
-            cid: 0
+            cid: 0,
+            loading: false
         }
     },
     watch: {
-        '$route'() {
-            this.cid = this.$route.params.cid // created 이후 cid가 바뀌면 갱신되도록.
+        '$route': {
+            handler: 'fetchData',
+            immediate: true
         }
     },
     created() {
-        this.cid = this.$route.params.cid
+        this.fetchData()
+    },
+    methods: {
+        fetchData() {
+            this.loading = true
+            setTimeout(() => {
+                this.cid = this.$route.params.cid
+                this.loading = false
+            }, 500)
+        }
     }
 }
 </script>
