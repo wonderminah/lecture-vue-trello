@@ -2,6 +2,10 @@
     <div>
         Board
         <div>bid: {{ bid }}</div>
+        <router-link :to="`/board/${bid}/card/1`">Card 1</router-link>
+        <router-link :to="`/board/${bid}/card/2`">Card 2</router-link>
+        <hr />
+        <router-view></router-view>
     </div>
 </template>
 
@@ -9,7 +13,7 @@
 export default {
     data() {
         return {
-            bid: 0 // 0은 왜 있는거야?
+            bid: 0
         }
     },
     created() {

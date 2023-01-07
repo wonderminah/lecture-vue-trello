@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '../components/Home.vue'
 import Board from '../components/Board.vue'
+import Card from '../components/Card.vue'
 import Login from '../components/Login.vue'
 import NotFound from '../components/NotFound.vue'
 
@@ -13,7 +14,9 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/login', component: Login },
-    { path: '/board/:bid', component: Board },
+    { path: '/board/:bid', component: Board, children: [
+        { path: 'card/:cid', component: Card }
+    ] },
     { path: '*', component: NotFound }
   ]
 })
