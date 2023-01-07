@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    여기서부터 코드를 시작합니다!
+    <a href="/">Home</a>
+    <a href="/login">Login</a>
+    <!-- vue-router에 따라 라우터에 의해서 컴포넌트로 대체되는 부분 START -->
+    <router-view>
+      
+    </router-view>
   </div>
 </template>
 
