@@ -266,3 +266,25 @@ export default {
 
 ### Axios 실전에서 사용하기
 
+[실습내용 커밋](https://github.com/wonderminah/lecture-vue-trello/commit/d34bcd4c28c0156e15a8556356eaa9e037781b1b)
+
+## 4. 인증
+
+### 인증 API
+
+백엔드 API에 curl로 POST 요청을 날려 토큰을 받는다.
+
+```bash
+➜  lecture-vue-trello git:(main) curl -X POST localhost:3000/login -d 'email=test@test.com&password=123123'
+
+{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc0NDAzNDUyLCJleHAiOjE3MDU5Mzk0NTJ9.FL5HyI9XJ1vqNC2uDa2SL_fDqEni0L6iiNoQEdbMY68","user":{"id":1,"email":"test@test.com","password":"123123","name":"Chris","createdAt":"2023-01-17T14:31:25.738Z","updatedAt":"2023-01-17T14:31:25.738Z"}}%
+```
+
+위에서 받은 토큰을 넣고 /boards에 curl을 날리면, 원래 401이었던 응답이 200이 되어 정상적으로 날아온다.
+
+```bash
+➜  lecture-vue-trello git:(main) ✗ curl -vs localhost:3000/boards -H 'Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc0NDAzNDUyLCJleHAiOjE3MDU5Mzk0NTJ9.FL5HyI9XJ1vqNC2uDa2SL_fDqEni0L6iiNoQEdbMY68'
+
+{"list":[{"id":1,"title":"Sample Board","bgColor":"rgb(0, 121, 191)","createdAt":"2023-01-17T14:31:25.744Z","updatedAt":"2023-01-17T14:31:25.744Z","userId":1}]}%
+```
+
