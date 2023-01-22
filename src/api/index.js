@@ -16,16 +16,28 @@ const request = (method, url, data) => {
         url: DOMAIN + url,
         data
     })
-    .then(result => result.data)
+    .then(result => {
+        result.data
+    })
     .catch(result => {
-        const {status} = result.response
+        const {status} = result.response.status
         if (status === UNAUTHORIZED) return onUnauthroized()
         throw Error(result)
     })
 }
 
+export const setAuthInHeader = token => {
+    axios.defaults.headers.common['Authorization'] = token ? `Bearer ${token}` : null
+}
+
 export const board = {
     fetch() {
         return request('get', '/boards')
+    }
+}
+
+export const auth = {
+    login(email, password) {
+        return request('post', '/login', {email, password})
     }
 }

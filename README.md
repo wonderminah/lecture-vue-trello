@@ -290,3 +290,7 @@ export default {
 
 ### 네비게이션 가드
 
+[실습내용 커밋](https://github.com/wonderminah/lecture-vue-trello/commit/33978a4ac03de9db47b2aee6d3e91d3fbab59be6)
+
+### 로그인
+
