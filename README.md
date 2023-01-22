@@ -262,3 +262,7 @@ export default {
 
 ### 보드 조회 API 연동
 
+[실습내용 커밋](https://github.com/wonderminah/lecture-vue-trello/commit/a082ffc344b5593ad45639717c553e6f0da245d9)
+
+### Axios 실전에서 사용하기
+
