@@ -288,3 +288,5 @@ export default {
 {"list":[{"id":1,"title":"Sample Board","bgColor":"rgb(0, 121, 191)","createdAt":"2023-01-17T14:31:25.744Z","updatedAt":"2023-01-17T14:31:25.744Z","userId":1}]}%
 ```
 
+### 네비게이션 가드
+
